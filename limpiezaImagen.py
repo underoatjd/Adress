@@ -1,6 +1,11 @@
 import cv2
 import numpy as np
 
+
+input_path = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/images/08879.png"
+
+output_path = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/images prepro/imagen_procesada.png"
+
 def mejorar_imagen(input_path, output_path):
     # Cargar la imagen en escala de grises
     imagen = cv2.imread(input_path, cv2.IMREAD_GRAYSCALE)
@@ -42,7 +47,4 @@ def mejorar_imagen(input_path, output_path):
 
     print(f"Imagen mejorada guardada en: {output_path}")
 
-# Ejemplo de uso
-input_path = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/images/98626.png"
-output_path = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/images prepro/imagen_procesada.png"
 mejorar_imagen(input_path, output_path)
