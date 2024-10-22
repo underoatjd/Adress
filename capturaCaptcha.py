@@ -32,7 +32,7 @@ for i in range(1, cantidad_captchas + 1):
         captcha = driver.find_element(By.XPATH, "//img[@id='Capcha_CaptchaImageUP']")
         
         # Guarda la captura de pantalla del captcha
-        ruta_imagen = os.path.join(ruta_carpeta, f"{i}.png")
+        ruta_imagen = os.path.join(ruta_carpeta, "ImagenTemporal.png")
         captcha.screenshot(ruta_imagen)
         print(f"Captcha {i} guardado en: {ruta_imagen}")
 
