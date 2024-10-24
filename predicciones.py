@@ -3,8 +3,9 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model  # type: ignore
 
-# Definir una función para realizar todo el proceso de predicción OCR
-def ocr_predict(test_image_folder: str, model_path: str = "modelo_ocr.keras") -> str:
+
+
+def ocr_predict(test_image_path: str, model_path: str = "modelo_ocr.keras") -> str:
     # Cargar el modelo entrenado
     model = load_model(model_path)
 
@@ -36,18 +37,13 @@ def ocr_predict(test_image_folder: str, model_path: str = "modelo_ocr.keras") ->
         image_normalized = image_resized / 255.0
         return image_normalized
 
-    # Obtener el primer archivo de imagen en la carpeta
-    test_image_files = os.listdir(test_image_folder)
-    if len(test_image_files) > 0:
-        test_image_path = os.path.join(test_image_folder, test_image_files[0])
-        test_image = cv2.imread(test_image_path, cv2.IMREAD_GRAYSCALE)
-        test_image_mejorada = mejorar_imagen(test_image)
-        test_image_preprocessed = preprocess_image(test_image_mejorada)
-        test_image_preprocessed = test_image_preprocessed.reshape(1, 64, 128, 1)
+    # Cargar la imagen específica
+    test_image = cv2.imread(test_image_path, cv2.IMREAD_GRAYSCALE)
+    test_image_mejorada = mejorar_imagen(test_image)
+    test_image_preprocessed = preprocess_image(test_image_mejorada)
+    test_image_preprocessed = test_image_preprocessed.reshape(1, 64, 128, 1)
 
-        predictions = model.predict(test_image_preprocessed)
-        predicted_digits = ''.join(str(np.argmax(predictions[0][i])) for i in range(5))
-        
-        return predicted_digits
-    else:
-        return "No se encontró ninguna imagen en la carpeta."
+    # Realizar la predicción con el modelo
+    predictions = model.predict(test_image_preprocessed)
+    predicted_digits = ''.join(str(np.argmax(predictions[0][i])) for i in range(5))
+    return predicted_digits

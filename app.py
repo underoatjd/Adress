@@ -35,13 +35,9 @@ driver.execute_script("arguments[0].scrollIntoView();", elemento)
 
 
 # Ruta donde se guardarán las imágenes
-ruta_carpeta = "/imagenTemporal"
-if not os.path.exists(ruta_carpeta):
-    os.makedirs(ruta_carpeta)
-
-input_pathM = "/imagenTemporal/ImagenTemporal.png"
-output_pathM = "/imagenTemporal/ImagenTemporal.png"
-modeloEntrenado = "modelo_ocr.keras"
+ruta_carpeta = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/"
+input_pathM = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/ImagenTemporal.png"
+output_pathM = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/ImagenTemporal.png"
 
 def iteraciones(dataframe):
     for index, row in dataframe.iterrows():
@@ -53,24 +49,14 @@ def iteraciones(dataframe):
         captcha.screenshot(ruta_imagen)
         try:
             mejorar_imagen(input_pathM,output_pathM)
-            
-            
         except:
             print("Error en procesameinto de imagen")
-        
         try:
-            resultado = ocr_predict(input_pathM,modeloEntrenado)
+            resultado = ocr_predict(ruta_imagen)
             print(resultado)
-            input("Aqui vamos")
-            
+            input("Revisa la prediccion y la imagen en la carpeta ImagenTemporal")
         except:
             print("Error inesperado")
-                        
-        
-             
-                
-
-
 
 iteraciones(cedulas)
     

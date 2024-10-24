@@ -11,7 +11,7 @@ def mejorar_imagen(input_path, output_path):
     # Binarización adaptativa para mejorar la detección de caracteres
     binarizada = cv2.adaptiveThreshold(
         imagen_filtrada, 255, 
-        cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
         cv2.THRESH_BINARY_INV, 11, 2
     )
 
