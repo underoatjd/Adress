@@ -55,7 +55,7 @@ else:
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Ruta a la carpeta de imágenes
-image_folder = 'C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/images prepro'
+image_folder = '/images prepro'
 
 # Obtener una lista de todos los archivos en la carpeta
 image_files = os.listdir(image_folder)

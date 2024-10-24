@@ -35,12 +35,12 @@ driver.execute_script("arguments[0].scrollIntoView();", elemento)
 
 
 # Ruta donde se guardarán las imágenes
-ruta_carpeta = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagenTemporal"
+ruta_carpeta = "/imagenTemporal"
 if not os.path.exists(ruta_carpeta):
     os.makedirs(ruta_carpeta)
 
-input_pathM = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagenTemporal/ImagenTemporal.png"
-output_pathM = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagenTemporal/ImagenTemporal.png"
+input_pathM = "/imagenTemporal/ImagenTemporal.png"
+output_pathM = "/imagenTemporal/ImagenTemporal.png"
 modeloEntrenado = "modelo_ocr.keras"
 
 def iteraciones(dataframe):

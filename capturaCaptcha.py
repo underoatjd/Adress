@@ -18,7 +18,7 @@ iframe = driver.find_element(By.ID, "MSOPageViewerWebPart_WebPartWPQ3")
 driver.switch_to.frame(iframe)
 
 # Ruta donde se guardarán las imágenes
-ruta_carpeta = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagentest"
+ruta_carpeta = "/imagentest"
 if not os.path.exists(ruta_carpeta):
     os.makedirs(ruta_carpeta)
 

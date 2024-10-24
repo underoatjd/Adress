@@ -62,7 +62,7 @@ def procesar_imagenes(carpeta_input, carpeta_output):
 
 
 # Uso del script
-carpeta_input = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/images"
-carpeta_output = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/images prepro"
+carpeta_input = "/images"
+carpeta_output = "/images prepro"
 
 procesar_imagenes(carpeta_input, carpeta_output)
