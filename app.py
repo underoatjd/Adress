@@ -33,11 +33,17 @@ driver.switch_to.frame(iframe)
 elemento = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,"//div[@id='content']//div[@align='center']")))
 driver.execute_script("arguments[0].scrollIntoView();", elemento)
 
-
+workHome = "renovar"
 # Ruta donde se guardarán las imágenes
-ruta_carpeta = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/"
-input_pathM = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/ImagenTemporal.png"
-output_pathM = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/ImagenTemporal.png"
+if workHome == "renovar":
+    ruta_carpeta = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagenTemporal"
+    input_pathM = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagenTemporal/ImagenTemporal.png"
+    output_pathM = "C:/python/RENOVAR FINANCIERA SELENIUM/ADRES/imagenTemporal/ImagenTemporal.png"
+else:
+    ruta_carpeta = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/"
+    input_pathM = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/ImagenTemporal.png"
+    output_pathM = "F:/Descargas/Descargas/SELENIUM CURSO/ADRESS/Adress/imagenTemporal/ImagenTemporal.png"
+
 
 def iteraciones(dataframe):
     for index, row in dataframe.iterrows():
@@ -56,7 +62,7 @@ def iteraciones(dataframe):
             print(resultado)
             input("Revisa la prediccion y la imagen en la carpeta ImagenTemporal")
         except:
-            print("Error inesperado")
+            print("Error inesperado en el modelo")
 
 iteraciones(cedulas)
     
